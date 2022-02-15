@@ -1,0 +1,37 @@
+@model IEnumerable<ASM_Day6.Models.Member>;
+@{
+    ViewData["Title"] = "Member";
+}
+<div class="text-center">
+    <h1 class="display -4">List of member</h1>
+    <p>
+        <a asp-controller="Member" asp-action="Add">Add new members</a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Fist Name</th>
+            <th>Last Name</th>
+            <th>Date of birth</th>
+            <th>Phone Number</th>
+            <th>Birth Place</th>
+            <th>Graduated</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var member in @Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => member.Id)</td>
+                <td>@Html.DisplayFor(modelItem => member.LastName)</td>
+                <td>@Html.DisplayFor(modelItem => member.FirstName)</td>
+                <td>@Html.DisplayFor(modelItem => member.DateOfBirth)</td>
+                <td>@Html.DisplayFor(modelItem => member.PhoneNum)</td>
+                <td>@Html.DisplayFor(modelItem => member.BirthPlace)</td>
+                <td>@Html.DisplayFor(modelItem => member.IsGraduated)</td>
+                <td>@Html.ActionLink("Update", "Update", new {id = member.Id}) 
+                  | @Html.ActionLink("Delete", "Delete", "Member", new {id = member.Id}, new {onClick = "return confirm('are your sure want to delete this member?')"})</td>
+            </tr>
+        }
+
+    </table>
+</div>

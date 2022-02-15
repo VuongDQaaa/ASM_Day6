@@ -1,0 +1,64 @@
+@using ASM_Day6.Enum;
+@model ASM_Day6.Models.Member;
+@{
+    ViewData["Title"] = "Update members";
+}
+
+<div>
+    <h1 class="display-4 text-center">Update Member</h1>
+
+    <form class="form-horizontal" action="Update" method="post">
+        @Html.HiddenFor(modelItem => Model.Id)
+        <div class="form-group">
+            <label for="firstName">First Name: </label>
+            <input type="text" class="form-control" id="firstName" name="firstName" value="@Model.FirstName" />
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name: </label>
+            <input type="text" class="form-control" id="lastName" name="lastName" value="@Model.LastName" />
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender: </label>
+            <select class="form-control" name="gender" id="gender">
+                <option value="Other" selected="@Model.Gender == @Gender.Other">Other</option>
+                <option value="Male" selected="@Model.Gender == @Gender.Male">Male</option>
+                <option value="Female" selected="@Model.Gender == @Gender.Female">Female</option>
+            </select>
+        </div>
+
+        @{var pattern = "yyyy-MM-dd";}
+        <div class="form-group">
+            <label for="dateOfBirth">Date Of Birth </label>
+            <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" value="@Model.DateOfBirth.ToString(@pattern)"/>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNum">Phone Number: </label>
+            <input type="tel" class="form-control" id="phoneNum" name="phoneNum" pattern="[0-9]{10}"
+                value="@Model.PhoneNum" />
+        </div>
+
+        <div class="form-group">
+            <label for="birthPlace">Birth Place: </label>
+            <input type="text" class="form-control" id="birthPlace" name="birthPlace" value="@Model.BirthPlace" />
+        </div>
+
+        <div class="form-group">
+            <label>Have you graduated? </label>
+            <div class="form-check">
+                <input type="radio" id="yes" name="isGraduated" value="Yes" checked="@Model.IsGraduated"/>
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="isGraduated" value="No" checked="!@Model.IsGraduated"/>
+                <label for="no">No</label>
+            </div>
+        </div>
+
+        <button type="submit" value="@Model" class="btn btn-primary">Submit</button>
+    </form>
+
+    <p>
+        <a asp-controller="Member" asp-action="Read">Return to list</a>
+    </p>
+</div>
