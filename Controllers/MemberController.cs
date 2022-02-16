@@ -23,40 +23,6 @@ namespace ASM_Day6.Controllers
         {
             return View("Error!");
         }
-        public IActionResult MaleMember()
-        {
-            return Ok(_memberService.GetMaleMember());
-        }
-        public IActionResult OldestMember()
-        {
-            return Ok(_memberService.OldestMember());
-        }
-        public IActionResult GetMemberByYear(int year)
-        {
-            return Ok(_memberService.GetMemberByYear(year));
-        }
-        public IActionResult GetFullName()
-        {
-            return Ok(_memberService.GetFullName());
-        }
-        public FileResult ExportExcelFile()
-        {
-            DataTable table = new DataTable();
-            table.Columns.AddRange(new DataColumn[2] { new DataColumn("First Name"), new DataColumn("LastName") });
-            foreach (Member member in _memberService.GetAllMember())
-            {
-                table.Rows.Add(member.FirstName, member.LastName);
-            }
-            using (XLWorkbook wb = new XLWorkbook())
-            {
-                wb.Worksheets.Add(table, "MemberWorsheet");
-                using (MemoryStream stream = new MemoryStream())
-                {
-                    wb.SaveAs(stream);
-                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.speadsheetml.sheet", "Grid.xlsx");
-                }
-            }
-        }
         public IActionResult Read()
         {
             var data = _memberService.GetAllMember();

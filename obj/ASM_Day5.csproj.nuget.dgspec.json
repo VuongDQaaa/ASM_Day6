@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\ASM_Day6\\ASM_Day5.csproj": {}
+    "D:\\ASM_Day6\\ASM_Day5.csproj": {}
   },
   "projects": {
-    "d:\\ASM_Day6\\ASM_Day5.csproj": {
+    "D:\\ASM_Day6\\ASM_Day5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\ASM_Day6\\ASM_Day5.csproj",
+        "projectUniqueName": "D:\\ASM_Day6\\ASM_Day5.csproj",
         "projectName": "ASM_Day5",
-        "projectPath": "d:\\ASM_Day6\\ASM_Day5.csproj",
+        "projectPath": "D:\\ASM_Day6\\ASM_Day5.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "d:\\ASM_Day6\\obj\\",
+        "outputPath": "D:\\ASM_Day6\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config"
